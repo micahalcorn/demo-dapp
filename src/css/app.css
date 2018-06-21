@@ -228,6 +228,7 @@ a:hover {
 /* Avatar */
 
 .avatar-container {
+  flex-shrink: 0;
   position: relative;
   background-color: var(--dark-grey-blue);
   border-radius: var(--default-radius);
@@ -755,14 +756,13 @@ a:hover {
   margin: 0 22px 0 0;
 }
 
-.notifications .dropdown-menu .count,
-.transactions .dropdown-menu .count {
+.notifications .count,
+.transactions .count {
   text-align: center;
   width: 68px;
 }
 
-.notifications .dropdown-menu .count div,
-.transactions .dropdown-menu .count div {
+.count div {
   border-radius: 12px;
   color: white;
   font-size: 16px;
@@ -770,11 +770,12 @@ a:hover {
   padding: 0 8px;
 }
 
-.notifications .dropdown-menu .count div {
+.notifications .count div {
   background-color: var(--greenblue);
 }
 
-.transactions .dropdown-menu .count div {
+.messages-wrapper .count div,
+.transactions .count div {
   background-color: var(--clear-blue);
 }
 
@@ -2199,6 +2200,133 @@ form .stars img {
   vertical-align: baseline;
 }
 
+/* Messages */
+
+.dialogues-list-col {
+  background-color: var(--pale-grey);
+}
+
+.no-gutters .dialogue-col {
+  background-color: white;
+  padding: 20px;
+}
+
+.no-gutters .dialogue-list-item {
+  height: 60px;
+  padding: 10px;
+}
+
+.dialogue-list-item {
+  cursor: pointer;
+}
+
+.dialogue-list-item.active {
+  background-color: var(--clear-blue);
+  color: white;
+}
+
+.dialogue-list-item .content-container {
+  font-weight: normal;
+  margin-right: 5px;
+}
+
+.dialogue-list-item .message {
+  font-size: 0.75rem;
+}
+
+.dialogue-list-item .meta-container {
+  font-weight: normal;
+  margin-left: auto;
+}
+
+.dialogue-list-item .time-reference {
+  color: #98a7b4;
+  font-size: 0.75rem;
+}
+
+.dialogue-list-item.active .time-reference {
+  color: white;
+}
+
+.dialogue-list-item .unread {
+  font-weight: bold;
+}
+
+.dialogue-list-item .count div {
+  border-radius: 8px;
+  font-size: 12px;
+  height: 18px;
+  padding: 0 6px;
+}
+
+.messages-wrapper .sender {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.messages-wrapper .listing-summary {
+  border-bottom: 1px solid #c2cbd3;
+  margin-bottom: 20px;
+}
+
+.messages-wrapper .brdcrmb {
+  color: var(--dusk);
+  font-size: 0.875rem;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.messages-wrapper .listing-summary h1 {
+  color: var(--dark);
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+.messages-wrapper .state {
+  color: var(--dusk);
+  font-size: 0.875rem;
+}
+
+.messages-wrapper .aspect-ratio {
+  position: relative;
+  flex-basis: 130px;
+  margin-bottom: 1rem;
+  margin-right: 20px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.messages-wrapper .aspect-ratio img {
+  height: 114px;
+}
+
+.dialogue .message:not(:last-of-type) {
+  margin-bottom: 20px;
+}
+
+.dialogue .avatar-container {
+  height: 60px;
+  width: 60px;
+}
+
+.dialogue .content {
+  font-size: 1.125rem;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+.dialogue .sender {
+  padding-top: 8px;
+}
+
+.dialogue .timestamp {
+  color: #98a7b4;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  margin-left: auto;
+  padding-top: 8px;
+}
+
 /* Notifications */
 
 .notification {
@@ -3064,6 +3192,20 @@ footer .dropdown-menu li:hover {
     background-position-y: bottom;
     max-height: 183px;
     max-width: 183px;
+  }
+
+  /* apply different background colors outside of the container */
+  .messages-wrapper {
+    background: linear-gradient(to right, var(--pale-grey) 25%, white 25%);
+    flex: 1;
+  }
+
+  .messages-wrapper > .container {
+    flex: 1;
+  }
+
+  .messages-wrapper > .container > .row {
+    height: 100%;
   }
 }
 
